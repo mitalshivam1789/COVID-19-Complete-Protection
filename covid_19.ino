@@ -46,7 +46,7 @@ void loop() {
   
   SerialBT.print(tempF);
   delay(1000);
-  if(tempF > 90){
+  if(tempF > 102){
     SerialBT.print("A");
     delay(1000);
   }
