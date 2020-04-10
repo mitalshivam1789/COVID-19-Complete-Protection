@@ -1,0 +1,30 @@
+<h1>Hi <%= name %></h1>
+<h2>Add Patient Number</h2>
+<div class="">
+<form action="/user_info" method="POST">
+  <!-- <div> -->
+    <label for="email">Number</label>
+    <input type="text" id="text" name="email" required>
+  <!-- </div> -->
+      <button type="submit" >Search</button>
+</form>
+</div>
+
+<% person.forEach(function(per){ %>
+  <div>
+      <h2><%=per.email%></h2>
+      <form action="/user_info/update/<%=per._id%>?_method=PUT" method="POST">
+      <input type="text" name="bool" value="<%=per.active%>" hidden>
+      <button type="submit" name="submit"><%=per.active%></button>
+      </form>
+      <br>
+      <h3>Travel History : </h3>
+      <%per.locs.forEach(function(loc){%>
+          <p>X : <%=loc.x%>  Y : <%=loc.y%></p>
+      <%})%>
+
+  </div>
+<%})%>
+<form action="/logout?_method=DELETE" method="POST">
+  <button type="submit">Log Out</button>
+</form>

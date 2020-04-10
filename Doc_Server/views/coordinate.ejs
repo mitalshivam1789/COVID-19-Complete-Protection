@@ -1,0 +1,23 @@
+<h2>Add Coordinates</h2>
+<div class="">
+<form action="/user_info/coordinates" method="POST">
+    <label for="X Coordinate">X-Coordinate</label>
+    <input type="text" id="text" name="x" required>
+    <label for="Y Coordinate">Y-Coordinate</label>
+    <input type="text" id="text" name="y" required>
+      <button type="submit" >Search</button>
+</form>
+</div>
+
+<% Coordinate.forEach(function(cor){ %>
+  <div>
+      <%cor.users.forEach(function(user){%>
+        <div>
+        <p><%=user.email%> : <%=user.present_at%></p>
+        </div>
+      <%})%>
+  </div>
+<%})%>
+<form action="/logout?_method=DELETE" method="POST">
+  <button type="submit">Log Out</button>
+</form>
